@@ -28,7 +28,12 @@ var jsonText2 = {
 },
 jsonText1= {
 	"images":[
-		
+		{
+			"name":"giraffe",
+			"path":"images/giraffe.png",
+			"description":"",
+			"date":"2014-07-21T09:07:24.187Z"
+		},
 			
 		{
 			"name":"dinosaur",
@@ -56,11 +61,11 @@ gallery = function(jsonText){
 		},
 
 		stringifyFun : function (galeryArray){
-			return  JSON.stringify(galeryArray);
+			return  jsonText = JSON.stringify(galeryArray);
 		},
 		
 		addPicture : function(name, path, description, date){
-			var galeryArray = this.parseFun(jsonText);				
+			var galeryArray = this.parseFun(this.jsonText);				
 			var addMassive = {
 				name : name,
 				path : path,
@@ -68,7 +73,9 @@ gallery = function(jsonText){
 				date : new Date(date)
 			};
 			var index = galeryArray.images.push(addMassive) - 1;				
-			jsonText = this.stringifyFun(galeryArray);	
+			
+			this.stringifyFun(galeryArray);	
+					
 			this.informPic("Добавляеем ", index);			
 		},
 		
@@ -114,7 +121,7 @@ gallery = function(jsonText){
 				
 				return 0;
 			});
-			jsonText = this.stringifyFun(galeryArray);
+			this.jsonText = this.stringifyFun(galeryArray);
 		},
 		filterFun : function(name, value){
 			var galeryArray = this.parseFun(jsonText);
@@ -159,20 +166,24 @@ jsonText1 = JSON.stringify(jsonText1);
 gallery1 = gallery(jsonText2);
 gallery2 = gallery(jsonText1);
 
-gallery1.addPicture('eawedfe','images/giraffe.png');
+//gallery1.addPicture('eawedfe','images/giraffe.png');
 //gallery1.removePicture(2,'name','giraffes');
 //gallery1.deletePicture(4);
-gallery1.addPicture('ffbf',"","images/dog.png" );
+//gallery1.addPicture('ffbf',"","images/dog.png" );
 
-gallery1.funSort('name');
+//gallery1.funSort('name');
 //
 //gallery1.filterFun('path',"images/giraffe.png");
 //gallery1.filterJsonBy("path");
-gallery1.filterJsonByName();
+//gallery1.filterJsonByName();
 //console.log(gallery1.checkAll());
+//gallery1.funToEnterJson();
+
+
+//
+gallery1.addPicture('eawedfe',"images/giraffe.png");
+gallery1.addPicture.call(gallery2,'eawedfe',"images/giraffe.png");
+gallery1.funSort.call(gallery2,'name');
+gallery1.funToEnterJson.call(gallery2);
+console.log("+++++++++++++++++++++++++++++++++++++++++++++++");
 gallery1.funToEnterJson();
-
-
-//console.log("+++++++++++++++++++++++++++++++++++++++++++++++");
-
-//gallery1.funToEnterJson.call(gallery2);
