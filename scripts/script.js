@@ -91,7 +91,7 @@ gallery = function(jsonText){
 			var galeryArray = this.parseFun(jsonText);
 			this.informPic("Удаляем ", index);
 			galeryArray.images.splice(index,1);		 
-			jsonText = this.stringifyFun(galeryArray);
+			this.stringifyFun(galeryArray);
 		},
 
 		informPic : function(funName,index ){
@@ -184,6 +184,7 @@ gallery2 = gallery(jsonText1);
 gallery1.addPicture('eawedfe',"images/giraffe.png");
 gallery1.addPicture.call(gallery2,'eawedfe',"images/giraffe.png");
 gallery1.funSort.call(gallery2,'name');
+gallery1.deletePicture.call(gallery2, 1);
 gallery1.funToEnterJson.call(gallery2);
 console.log("+++++++++++++++++++++++++++++++++++++++++++++++");
 gallery1.funToEnterJson();
